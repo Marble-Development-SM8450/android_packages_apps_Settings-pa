@@ -125,4 +125,7 @@
     <string name="notification_heads_up_compact_title">Compact Heads Up notifications</string>
     <string name="notification_heads_up_compact_summary">Show brief pop up notifications</string>   
 
+    <!-- Three-fingers-swipe screenshot -->
+    <string name="three_finger_gesture">Swipe to screenshot</string>
+    <string name="three_finger_gesture_summary">Swipe down with three fingers to take a screenshot</string>
 </resources>
