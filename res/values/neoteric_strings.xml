@@ -30,6 +30,11 @@
     <string name="pif_update_title">Update Play Integrity fix</string>
     <string name="pif_update_summary">Force check for updated PIF. This will remove any manually set PIF.</string>
 
+    <!-- PIF Category -->
+    <string name="pif_category_title">Play Integrity Fix</string>
+    <string name="pif_master_switch_title">Disable Play Integrity Fix</string>
+    <string name="pif_master_switch_summary">This will disable all Play Integrity Fix features</string>
+
     <!-- GMS cert chain -->
     <string name="gms_cert_chain_title">Disable forcing strong integrity</string>
     <string name="gms_cert_chain_summary">Forcing strong integrity breaks apps like Google Pay, enabling this option fixes such apps.</string>
