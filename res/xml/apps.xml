@@ -150,6 +150,13 @@
         android:summary="@string/spoof_photos_summary"
         android:defaultValue="false" />
 
+    <!-- App Spoofing -->
+    <Preference
+        android:key="user_selectable_app_spoofing"
+        android:title="@string/user_selectable_app_spoofing_title"
+        android:summary="@string/user_selectable_app_spoofing_summary"
+        android:fragment="com.android.settings.applications.UserSelectedAppSpoofSettings" />
+
     <PreferenceCategory
         android:key="advanced_category"
         android:title="@string/advanced_apps"
