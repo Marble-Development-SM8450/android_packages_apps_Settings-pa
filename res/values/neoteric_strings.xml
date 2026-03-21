@@ -97,4 +97,8 @@
     <string name="app_spoofing_remove_confirm">Remove %1$s from the spoofing list?</string>
     <string name="edit">Edit</string>
     <string name="search_apps">Search apps</string>
+
+    <!-- Miscellaneous -->
+    <string name="miscellaneous_pairip_activity_block_title">Block PairIP license verification</string>
+    <string name="miscellaneous_pairip_activity_block_summary">Prevent Play Store apps from launching the \"Get this app from Play\" screen when not installed by the Play Store</string>
 </resources>
