@@ -44,7 +44,7 @@ import com.android.settings.widget.PreferenceCategoryController;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.search.SearchIndexable;
 
-import org.neoteric.preference.SystemPropertySwitchPreference;
+import co.aospa.framework.preference.SystemPropertySwitchPreference;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -76,6 +76,8 @@ public class AppDashboardFragment extends DashboardFragment {
     private Preference mPifProps;
     private Preference mPifUpdate;
     private AppsPreferenceController mAppsPreferenceController;
+
+    private static final String SYS_SPOOF_PHOTOS = "persist.sys.pihooks.photos";
 
     private static List<AbstractPreferenceController> buildPreferenceControllers(Context context) {
         final List<AbstractPreferenceController> controllers = new ArrayList<>();
@@ -178,6 +180,14 @@ public class AppDashboardFragment extends DashboardFragment {
             mPifDataPreference.setFilePickerLauncher(mPifFilePickerLauncher);
         }
 
+        Preference spoofPhotos = findPreference(SYS_SPOOF_PHOTOS);
+        if (spoofPhotos != null) {
+            spoofPhotos.setOnPreferenceChangeListener((preference, newValue) -> {
+                killGooglePhotos();
+                return true;
+            });
+        }
+
         mPifProps.setOnPreferenceClickListener(preference -> {
             showPifProps();
             return true;
@@ -277,6 +287,16 @@ public class AppDashboardFragment extends DashboardFragment {
         }
     }
 
+    private void killGooglePhotos() {
+        try {
+            android.app.ActivityManager am = (android.app.ActivityManager)
+                    getContext().getSystemService(Context.ACTIVITY_SERVICE);
+            am.getClass().getMethod("forceStopPackage", String.class)
+                    .invoke(am, "com.google.android.apps.photos");
+        } catch (Exception e) {
+            android.util.Log.e(TAG, "Failed to kill Google Photos", e);
+        }
+    }
 
     @VisibleForTesting
     PreferenceCategoryController getAdvancedAppsPreferenceCategoryController() {

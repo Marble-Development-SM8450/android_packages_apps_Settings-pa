@@ -119,7 +119,7 @@
         android:key="keybox_data_setting"
         android:title="@string/keybox_data_title"/>
 
-    <org.neoteric.preference.SystemPropertySwitchPreference
+    <co.aospa.framework.preference.SystemPropertySwitchPreference
         android:key="persist.sys.pihooks.disable.gms_props"
         android:title="@string/pif_master_switch_title"
         android:summary="@string/pif_master_switch_summary"
@@ -144,6 +144,12 @@
         android:title="@string/gms_cert_chain_title"
         android:summary="@string/gms_cert_chain_summary"
         android:defaultValue="true" />
+
+    <co.aospa.framework.preference.SystemPropertySwitchPreference
+        android:key="persist.sys.pihooks.photos"
+        android:title="@string/spoof_photos_title"
+        android:summary="@string/spoof_photos_summary"
+        android:defaultValue="false" />
 
     <PreferenceCategory
         android:key="advanced_category"
